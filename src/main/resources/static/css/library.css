@@ -1,0 +1,49 @@
+.modal-header .close {
+    margin-top: -30px;
+}
+
+tr.borrowing {
+    background-color: rgba(169, 145, 145, 0.59);
+}
+
+a.disabled {
+    pointer-events: none;
+}
+
+.sidebar .nav li:hover.disabled a {
+    opacity: 0.7;
+}
+
+.sidebar .nav li > form,
+.sidebar .nav li > form:hover {
+	-webkit-transition:all 150ms ease-in;
+	-moz-transition:all 150ms ease-in;
+	-o-transition:all 150ms ease-in;
+	-ms-transition:all 150ms ease-in;
+	transition:all 150ms ease-in;
+}
+
+.sidebar .nav li > form {
+	margin:10px 0px;
+	padding: 10px 25px;
+	opacity:.7;
+}
+
+.sidebar .nav li > form:hover {
+	opacity:1;
+}
+
+button {
+	padding: 0;
+	line-height:30px;
+	font-size:12px;
+	font-weight:600;
+	text-transform:uppercase;
+	border: none;
+	background-color: inherit;
+}
+
+.card .book-title {
+    font-size: 12px;
+    font-weight: 600;
+}
