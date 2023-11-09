@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>side bar</title>
+</head>
+<body>
+<div th:fragment="sidebar" class="sidebar" data-background-color="white" data-active-color="danger">
+	<div class="sidebar-wrapper">
+		<div class="logo">
+			<a href="library.html" class="simple-text">
+				XX  Library
+			</a>
+		</div>
+		<ul class="nav">
+			<li class="active">
+				<a href="index">
+					<i class="ti-book"></i>
+					<p>Book List</p>
+				</a>
+			</li>
+			<li class="link" id="link-book-list">
+				<a href="/library/history">
+					<i class="ti-user"></i>
+					<p>Borrow History</p>
+				</a>
+			</li>
+			<li class="link">
+				<form action="">
+					<button>
+						<i class="ti-back-left"></i>
+						Logout
+					</button>
+				</form>
+			</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>
