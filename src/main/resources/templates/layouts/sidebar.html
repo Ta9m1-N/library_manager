@@ -12,8 +12,8 @@
 			</a>
 		</div>
 		<ul class="nav">
-			<li class="active">
-				<a href="index">
+			<li class="link">
+				<a href="/library">
 					<i class="ti-book"></i>
 					<p>Book List</p>
 				</a>
@@ -25,12 +25,20 @@
 				</a>
 			</li>
 			<li class="link">
-				<form action="">
+				<form th:action="@{/logout}" method="post">
 					<button>
 						<i class="ti-back-left"></i>
 						Logout
 					</button>
 				</form>
+			</li>
+		</ul>
+		<ul sec:authorize="isAuthenticated()" class="nav">
+			<li class="user panel-body">
+				<p>
+					<span sec:authentication="principal.user.name"></span>
+					さんがログイン中
+				</p>
 			</li>
 		</ul>
 	</div>
