@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org" th:replace="~{layouts/main :: main(~{::title},~{::body/content()})}">
+<head>
+	<title>書籍貸し出し</title>
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button class="navbar-toggle" type="button"></button>
+				<span class="navbar-brand" id="page-title">Borrow</span>
+			</div>
+		</div>
+	</nav>
+	<div class="area content" id="area-book-list">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="header">
+							<h4 class="title">Borrow book data</h4>
+						</div>
+						<div class="content">
+							<form th:action="@{/library/borrow}" method="post">
+								<div class="book-title">
+									<p th:text="${library.name}"></p>
+								</div>
+								<hr>
+								<div class="form-group">
+									<label>return date</label>
+									<input class="form-control border-input" name="return_due_date" type="date" placeholder="date">
+								</div>
+								<div class="text-center">
+									<input name="id" type="hidden" th:value="${library.id}">
+									<button class="btn btn-success btn-fill btn-wd" type="submit">borrow!</button>
+								</div>
+								<div class="clearfix"></div>
+							</form>
+						</div>
+						<div class="back-index">
+							<a href="/library">一覧へ戻る</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
