@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="http://www.thymeleaf.org" th:replace="~{layouts/main :: main(~{::title}, ~{::body/content()})}">
 <head>
-	<title>図書一覧</title>
+	<title>貸し出し履歴一覧</title>
 </head>
 <body>
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle"></button>
-				<span class="navbar-brand" id="page-title">Book List</span>
+				<span class="navbar-brand" id="page-title">Borrow History</span>
 			</div>
 		</div>
 	</nav>
@@ -24,26 +24,16 @@
 							<table class="table table-hover">
 								<thead>
 									<tr>
-										<th>ID</th>
 										<th>Title</th>
-										<th></th>
+										<th>Rent Date</th>
+										<th>Return Date</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr th:each="library : ${libraries}">
-										<td th:text="${library.id}"></td>
-										<td th:text="${library.name}"></td>
-										<td th:switch="${library.userId}">
-											<form th:case="0" action="/library/borrow" method="get">
-												<input type="hidden" name="id" th:value="${library.id}">
-												<input class="btn btn-info" type="submit" value="borrow">
-											</form>
-											<form th:case="${#authentication.principal.user.id}" th:action="@{/library/return}" method="post">
-												<input type="hidden" name="id" th:value="${library.id}">
-												<input class="btn btn-danger" type="submit" value="return">
-											</form>
-											<div th:case="*" class="btn btn-success">borrowing</div>
-										</td>
+									<tr th:each="log : ${logs}">
+										<td th:text="${log.library.name}"></td>
+										<td th:text="${#temporals.format(log.rentDate, 'yyyy-MM-dd')}"></td>
+										<td th:text="${log.returnDate != null}? ${#temporals.format(log.returnDate, 'yyyy-MM-dd')} : '-'"></td>
 									</tr>
 								</tbody>
 							</table>
